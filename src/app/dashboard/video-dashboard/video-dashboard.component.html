@@ -1,4 +1,4 @@
-<app-video-list [list]="list"
+<app-video-list [list]="(list | async) ?? []"
 [selectedId]="selectedVideo?.id"
 (selectedVideo)="setSelectedVideo($event)"></app-video-list>
 <app-video-player [video]="selectedVideo"></app-video-player>

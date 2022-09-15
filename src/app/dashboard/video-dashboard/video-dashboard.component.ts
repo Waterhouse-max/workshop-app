@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { video } from '../../app-types'
-import { HttpClient } from '@angular/common/http';
+import {VideoDataService} from '../../video-data.service'
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-video-dashboard',
@@ -9,12 +11,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VideoDashboardComponent implements OnInit {
   selectedVideo: video | undefined;
-  list: video[]=[];
+  list: Observable<video[]>;
    
-  constructor(http: HttpClient) {
-    http.get<video[]>('https://api.angularbootcamp.com/videos')
-    .subscribe(list => (this.list = list));
-    this.setSelectedVideo(this.list[0]);
+  constructor(videoSvc: VideoDataService) {
+    this.list=videoSvc.loadVideos().pipe(tap((videos) => this.setSelectedVideo(videos[0])));
+  
    }
 
 
