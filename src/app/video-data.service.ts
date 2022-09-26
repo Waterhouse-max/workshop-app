@@ -15,7 +15,8 @@ export class VideoDataService {
   loadVideos(): Observable<video[]>{
     return this.http
     .get<video[]>('https://api.angularbootcamp.com/videos')
-    //.pipe(map(video => (video.author).toUpperCase() ));
+    .pipe(map(video => video.map((video)=> ({...video, title: video.title.toUpperCase()}))
+    .filter((video)=>video.author.toLowerCase().includes(""))));
   }
 }
 

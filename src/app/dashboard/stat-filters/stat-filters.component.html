@@ -1,1 +1,31 @@
-<p>stat-filters works!</p>
+<form [formGroup]="details" (ngSubmit)="saveEmployeeDetails()">
+  <div class="three-across">
+    <div>
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title" />
+      <div
+        *ngIf="
+          details.get('firstName')?.hasError('required') &&
+          details.get('firstName')?.touched
+        "
+      >
+        Please enter title
+      </div>
+    </div>
+    <div>
+      <label for="author">Author</label>
+      <input id="author" type="text" formControlName="author" />
+      <div
+        *ngIf="
+          details.get('author')?.hasError('author') &&
+          details.get('author')?.touched
+        "
+      >
+        Please enter author
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn" [disabled]="!details.valid">
+    Submit
+  </button>
+</form>

@@ -7,6 +7,7 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
 import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 import { VideoCardComponent } from './video-card/video-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const dashboardRoutes: Routes= [
   { path: '', component: VideoDashboardComponent},
@@ -22,7 +23,7 @@ const dashboardRoutes: Routes= [
     
   ],
   imports: [
-    CommonModule, HttpClientModule, RouterModule.forChild(dashboardRoutes)
+    CommonModule, HttpClientModule, ReactiveFormsModule, RouterModule.forChild(dashboardRoutes)
   ]
 })
 export class DashboardModule { }
