@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { searchParams } from 'src/app/app-types';
+
 
 @Component({
   selector: 'app-stat-filters',
@@ -8,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class StatFiltersComponent implements OnInit {
   details: FormGroup;
+  @Output() filterParam = new EventEmitter<searchParams>()
+
   constructor(fb: FormBuilder) { 
     this.details = fb.group({
     title: ['', Validators.minLength(3)],
@@ -25,7 +29,8 @@ export class StatFiltersComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.details.value);
+    console.log(this.details.value, "moo");
+    this.filterParam.emit(this.details.value);
   }
 
 }

@@ -10,3 +10,8 @@ export interface video {
     region: string;
     date: string;
   }
+
+export interface searchParams{
+  title: string;
+  author: string;
+}

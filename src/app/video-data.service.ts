@@ -16,7 +16,8 @@ export class VideoDataService {
     return this.http
     .get<video[]>('https://api.angularbootcamp.com/videos')
     .pipe(map(video => video.map((video)=> ({...video, title: video.title.toUpperCase()}))
-    .filter((video)=>video.author.toLowerCase().includes(""))));
+    .filter((video)=>video.author.toLowerCase().includes(""))
+    ));
   }
 }
 
