@@ -1,6 +1,6 @@
 
 <app-video-card
- *ngFor="let video of list"
+ *ngFor="let video of filteredList"
   (click)="displayVideo(video)"
   [video]="video"
   [isSelected]="selectedId === video.id"

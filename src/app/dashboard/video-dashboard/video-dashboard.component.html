@@ -1,7 +1,7 @@
-<app-video-list [list]="(list | async) ?? []"
+<app-video-list [filteredList]="(filteredList | async) ?? []"
 [selectedId]="selectedVideo?.id"
 (selectedVideo)="setSelectedVideo($event)"></app-video-list>
 <app-video-player [video]="selectedVideo"></app-video-player>
-<app-stat-filters (bookTitleCreated)=onBookAdded(mySearch)></app-stat-filters>
+<app-stat-filters (filterParam)=test($event)></app-stat-filters>
 
 

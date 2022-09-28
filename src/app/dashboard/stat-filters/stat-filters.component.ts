@@ -23,6 +23,7 @@ export class StatFiltersComponent implements OnInit {
 
   saveEmployeeDetails(): void {
     console.log('Form Submitted', this.details.value);
+    this.filterParam.emit(this.details.value);
   }
 
   ngOnInit(): void {

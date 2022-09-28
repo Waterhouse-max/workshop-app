@@ -8,7 +8,7 @@ import { video } from '../../app-types'
 })
 export class VideoListComponent implements OnInit {
   @Input()selectedId: string | undefined;
-  @Input() list: video[]=[];
+  @Input() filteredList: video[]=[];
   @Output() selectedVideo= new EventEmitter<video>();
   constructor() {}
 
